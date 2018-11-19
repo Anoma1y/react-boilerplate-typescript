@@ -3,7 +3,7 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CircularDependencyPlugin = require('circular-dependency-plugin');
 
-module.exports = require('./webpack.base.babel')({
+module.exports = require('./webpack.base.config')({
   mode: 'development',
   entry: [
     'eventsource-polyfill',
