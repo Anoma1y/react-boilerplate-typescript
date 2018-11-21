@@ -6,6 +6,7 @@ import configureStore from './store/configureStore';
 import { ConnectedRouter } from 'connected-react-router';
 import { createBrowserHistory } from 'history';
 import App from './App';
+import './test';
 
 const MOUNT_NODE = document.querySelector('#root');
 
