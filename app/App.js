@@ -2,7 +2,17 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Image from './components/Image';
 
-@connect(({ router }) => ({ router }))
+const mapStateToProps = ({
+  router
+}) => ({
+  router
+});
+
+const mapDispatchToProps = ({
+
+});
+
+@connect(mapStateToProps)
 export default class App extends Component {
   render() {
     return (

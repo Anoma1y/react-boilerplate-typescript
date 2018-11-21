@@ -1,3 +1,5 @@
+const { checkComponentExists } = require('../helpers');
+
 module.exports = {
   description: 'Add component',
   prompts: [
@@ -17,6 +19,22 @@ module.exports = {
       name: 'name',
       message: 'Set component name',
       default: 'Component',
+      validate: value => {
+        if (/.+/.test(value)) {
+          if (checkComponentExists(value)) {
+            return 'A component or container with this name already exists';
+          }
+          return true;
+        }
+
+        return 'The name is required';
+      },
+    },
+    {
+      type: 'confirm',
+      name: 'needTest',
+      message: 'Need test?',
+      default: true,
     },
     {
       type: 'confirm',
@@ -30,13 +48,6 @@ module.exports = {
       message: 'Need styled-components?',
       default: true,
     },
-    {
-      type: 'confirm',
-      name: 'needConnect',
-      message: 'Need redux connect?',
-      default: true,
-    },
-
   ],
   actions: (data) => {
     let templateComponentSrc = '';
@@ -65,8 +76,17 @@ module.exports = {
         path: '../../app/components/{{properCase name}}/index.js',
         templateFile: templateComponentSrc,
         abortOnFail: true,
-      }
+      },
     ];
+
+    if (data.needTests) {
+      actions.push(      {
+        type: 'add',
+        path: '../../app/components/{{properCase name}}/tests/index.test.js',
+        templateFile: './components/test.js.hbs',
+        abortOnFail: true,
+      },);
+    }
 
     return actions;
   },
