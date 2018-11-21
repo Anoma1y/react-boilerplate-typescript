@@ -1,4 +1,6 @@
 const { checkComponentExists } = require('../helpers');
+const path = require('path');
+const currentDirectory = process.env.INIT_CWD;
 
 module.exports = {
   description: 'Add component',
@@ -32,7 +34,7 @@ module.exports = {
     },
     {
       type: 'confirm',
-      name: 'needTest',
+      name: 'needTests',
       message: 'Need test?',
       default: true,
     },
@@ -73,16 +75,18 @@ module.exports = {
     const actions = [
       {
         type: 'add',
-        path: '../../app/components/{{properCase name}}/index.js',
+        path: `${currentDirectory}/{{properCase name}}/index.js`,
+        // path: '../../app/components/{{properCase name}}/index.js',
         templateFile: templateComponentSrc,
         abortOnFail: true,
       },
     ];
 
     if (data.needTests) {
+      console.log(123)
       actions.push(      {
         type: 'add',
-        path: '../../app/components/{{properCase name}}/tests/index.test.js',
+        path: `${currentDirectory}/{{properCase name}}/tests/index.test.js`,
         templateFile: './components/test.js.hbs',
         abortOnFail: true,
       },);
