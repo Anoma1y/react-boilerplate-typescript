@@ -3,7 +3,7 @@ const path = require('path');
 const currentDirectory = process.env.INIT_CWD;
 
 module.exports = {
-  description: 'Add component',
+  description: 'Add a new component',
   prompts: [
     {
       type: 'list',
