@@ -21,5 +21,29 @@ module.exports = {
         return 'The name is required';
       },
     },
+    {
+      type: 'confirm',
+      name: 'needPropTypes',
+      message: 'Need prop-types?',
+      default: false,
+    },
+    {
+      type: 'confirm',
+      name: 'needTest',
+      message: 'Need test?',
+      default: true,
+    },
+    {
+      type: 'confirm',
+      name: 'needStore',
+      message: 'Need store?',
+      default: true,
+    },
+    {
+      type: 'confirm',
+      name: 'needStyledComponents',
+      message: 'Need styled components?',
+      default: false,
+    },
   ]
 };

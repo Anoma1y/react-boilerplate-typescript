@@ -83,7 +83,6 @@ module.exports = {
     ];
 
     if (data.needTests) {
-      console.log(123)
       actions.push(      {
         type: 'add',
         path: `${currentDirectory}/{{properCase name}}/tests/index.test.js`,
