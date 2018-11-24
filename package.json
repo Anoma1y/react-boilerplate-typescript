@@ -11,6 +11,7 @@
     "lint": "yarn run lint:js",
     "lint:css": "stylelint './app/**/*.js'",
     "test": "cross-env NODE_ENV=test jest --verbose",
+    "generate": "plop --plopfile internals/generators/index.js",
     "prettify": "prettier --write app/**/*.js"
   },
   "author": "Anoma1y",
@@ -68,6 +69,7 @@
     "mini-css-extract-plugin": "^0.4.4",
     "node-sass": "^4.10.0",
     "null-loader": "^0.1.1",
+    "plop": "^2.1.0",
     "prettier": "^1.15.2",
     "rimraf": "^2.6.2",
     "sass-loader": "^7.1.0",

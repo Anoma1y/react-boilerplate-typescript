@@ -13,7 +13,7 @@ module.exports = {
     'raf/polyfill',
     '<rootDir>/internals/testing/enzyme-setup.js'
   ],
-  testRegex: 'tests/.*\\.spec\\.js$',
+  testRegex: 'tests/.*\\.test\\.js$',
   snapshotSerializers: [
     'enzyme-to-json/serializer'
   ],

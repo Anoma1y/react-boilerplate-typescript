@@ -2,11 +2,18 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Image from './components/Image';
 
-@connect(({ router }) => ({ router }))
+const mapStateToProps = ({
+  router
+}) => ({
+  router
+});
+
+const mapDispatchToProps = ({
+
+});
+
+@connect(mapStateToProps)
 export default class App extends Component {
-  componentDidMount() {
-    console.log(this.props.router)
-  }
   render() {
     return (
       <div className={'page'}>

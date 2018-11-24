@@ -207,3 +207,7 @@ typings/
 .fusebox/
 
 # End of https://www.gitignore.io/api/node,linux,macos,jetbrains+all
+
+# Build
+
+build/
