@@ -12,6 +12,7 @@
     "ecmaFeatures": {
       "impliedStrict": true,
       "jsx": true,
+      "legacyDecorators": true,
       "experimentalObjectRestSpread": true,
       "experimentalDecorators": true
     }
