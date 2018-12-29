@@ -211,3 +211,8 @@ typings/
 # Build
 
 build/
+
+# Store _reducer
+
+**/_reducer.js
+**/_reducer.js.bak
