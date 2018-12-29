@@ -29,14 +29,8 @@ module.exports = {
     },
     {
       type: 'confirm',
-      name: 'needTest',
-      message: 'Need test?',
-      default: true,
-    },
-    {
-      type: 'confirm',
-      name: 'needStore',
-      message: 'Need store?',
+      name: 'needSCSS',
+      message: 'Need SCSS?',
       default: true,
     },
     {

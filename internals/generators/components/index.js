@@ -34,12 +34,6 @@ module.exports = {
     },
     {
       type: 'confirm',
-      name: 'needTests',
-      message: 'Need test?',
-      default: true,
-    },
-    {
-      type: 'confirm',
       name: 'needPropTypes',
       message: 'Need prop-types?',
       default: true,
