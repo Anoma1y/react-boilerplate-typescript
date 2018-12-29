@@ -214,5 +214,5 @@ build/
 
 # Store _reducer
 
-./app/store/_reducer.js
-./app/store/_reducer.js.bak
+app/store/_reducer.js
+app/store/_reducer.js.bak
