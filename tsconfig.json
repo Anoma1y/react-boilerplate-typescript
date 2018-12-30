@@ -1,0 +1,36 @@
+{
+  "compilerOptions": {
+    "rootDir": "app",
+    "baseUrl": "app",
+    "outDir": "./build/",
+    "sourceMap": true,
+    "module": "commonjs",
+    "target": "es5",
+    "jsx": "react",
+    "lib": ["es5", "es6", "dom"],
+    "allowJs": true,
+    "moduleResolution": "node",
+    "forceConsistentCasingInFileNames":true,
+    "newLine": "LF",
+    "noUnusedParameters": true,
+    "pretty": true,
+    "strictPropertyInitialization": true,
+    "strict": true,
+    "experimentalDecorators": true,
+    "noImplicitReturns": true,
+    "noImplicitAny": false,
+    "noImplicitThis": true,
+    "noStrictGenericChecks": true
+  },
+  "include": [
+    "./app/**/*"
+  ],
+  "exclude": [
+    "node_modules"
+  ],
+  "awesomeTypescriptLoaderOptions": {
+    "reportFiles": [
+      "./app/**/*"
+    ]
+  }
+}

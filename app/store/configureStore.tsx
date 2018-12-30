@@ -2,12 +2,18 @@ import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
 import { routerMiddleware, connectRouter } from 'connected-react-router';
 import { createLogger } from 'redux-logger';
 import thunkMiddleware from 'redux-thunk';
-import rootReducers from './reducers';
+import * as rootReducers from './reducers';
 
-export default (history, initialState) => {
+declare global {
+  interface Window {
+    devToolsExtension: any;
+  }
+}
+
+export default (history, initialState: object = {}) => {
   const imSt = require('redux-immutable-state-invariant').default();
   let middlewares = [thunkMiddleware, routerMiddleware(history)];
-  let enchancers = [];
+  let enchancers: any[] = [];
 
   if (process.env.NODE_ENV === 'development') {
     const reduxImmutableStateInvariant = imSt;
@@ -27,11 +33,10 @@ export default (history, initialState) => {
   });
 
   const store = createStore(reducers, initialState, compose(applyMiddleware(...middlewares), ...enchancers));
-  store.injectedReducers = {};
 
   if (module.hot) {
     module.hot.accept('./reducers', () => {
-      store.replaceReducer(rootReducers(store.injectedReducers));
+      store.replaceReducer(rootReducers());
     });
   }
 

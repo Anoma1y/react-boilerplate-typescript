@@ -8,7 +8,7 @@ module.exports = require('./webpack.base.config')({
   entry: [
     'eventsource-polyfill',
     'webpack-hot-middleware/client?reload=true',
-    path.join(process.cwd(), 'app/index.js')
+    path.join(process.cwd(), 'app/index.tsx')
   ],
   output: {
     filename: '[name].js',

@@ -1,5 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
+const { CheckerPlugin } = require('awesome-typescript-loader');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const devMode = process.env.NODE_ENV !== 'production';
 
@@ -12,6 +13,7 @@ module.exports = (options) => ({
     path: path.resolve(process.cwd(), 'build'),
     publicPath: '/',
   }, options.output),
+
   module: {
     rules: [
       {
@@ -21,6 +23,13 @@ module.exports = (options) => ({
           loader: 'babel-loader',
           options: options.babelQuery,
         },
+      },
+      {
+        test: /\.tsx?$/,
+        use: [
+          'babel-loader',
+          'awesome-typescript-loader'
+        ],
       },
       {
         test: /\.(sa|sc|c)ss$/,
@@ -78,6 +87,7 @@ module.exports = (options) => ({
     ],
   },
   plugins: options.plugins.concat([
+    new CheckerPlugin(),
     new webpack.ProvidePlugin({
       fetch: 'exports-loader?self.fetch!whatwg-fetch'
     }),
@@ -90,6 +100,8 @@ module.exports = (options) => ({
   resolve: {
     modules: ['app', 'node_modules'],
     extensions: [
+      '.ts',
+      '.tsx',
       '.js',
       '.jsx',
       '.scss',
