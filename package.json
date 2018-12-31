@@ -14,16 +14,6 @@
   },
   "author": "Anoma1y",
   "license": "ISC",
-  "lint-staged": {
-    "*.js": [
-      "npm run lint:eslint:fix",
-      "git add --force"
-    ],
-    "*.json": [
-      "prettier --write",
-      "git add --force"
-    ]
-  },
   "browserslist": [
     "> 1%",
     "last 2 versions"
@@ -49,7 +39,6 @@
     "autoprefixer": "^9.4.3",
     "awesome-typescript-loader": "^5.2.1",
     "babel-cli": "^6.26.0",
-    "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.4",
     "babel-plugin-dynamic-import-node": "^2.2.0",
     "babel-plugin-react-transform": "^3.0.0",
@@ -60,12 +49,6 @@
     "cross-env": "^5.2.0",
     "css-loader": "^2.1.0",
     "empty": "^0.10.1",
-    "eslint": "^5.11.1",
-    "eslint-config-airbnb": "^17.1.0",
-    "eslint-loader": "^2.1.1",
-    "eslint-plugin-import": "^2.14.0",
-    "eslint-plugin-jsx-a11y": "^6.1.2",
-    "eslint-plugin-react": "^7.12.0",
     "eventsource-polyfill": "^0.9.6",
     "exports-loader": "^0.7.0",
     "html-loader": "^0.5.5",
