@@ -5,7 +5,7 @@ import { changeName } from './store/actions';
 @connect(({ Dashboard }) => ({ Dashboard }), ({
   changeName
 }))
-export default class Dashboard extends React.Component {
+export class Dashboard extends React.Component {
   render() {
     const { Dashboard, changeName } = this.props;
     return (

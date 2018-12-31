@@ -2,15 +2,15 @@ import 'babel-polyfill';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import configureStore from './store/configureStore';
 import { ConnectedRouter } from 'connected-react-router';
-import { createBrowserHistory } from 'history';
+import configureStore from './store/configureStore';
 import App from './App';
+import './index.scss';
 
 const MOUNT_NODE = document.querySelector('#root');
 
-const history = createBrowserHistory();
-const store = configureStore(history, {});
+const store = configureStore.store;
+const history = configureStore.history;
 
 const render = () => {
   ReactDOM.render(

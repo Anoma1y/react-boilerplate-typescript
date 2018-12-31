@@ -3,6 +3,7 @@ const webpack = require('webpack');
 const { CheckerPlugin } = require('awesome-typescript-loader');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const devMode = process.env.NODE_ENV !== 'production';
+const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 
 process.noDeprecation = true;
 
@@ -38,7 +39,15 @@ module.exports = (options) => ({
           devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
           'css-loader',
           'postcss-loader',
-          'sass-loader',
+          {
+            loader: 'sass-loader',
+            options: {
+              data: '@import "variables";',
+              includePaths: [
+                path.resolve(process.cwd(), "app/styles/")
+              ]
+            }
+          }
         ]
       },
       {
@@ -87,6 +96,7 @@ module.exports = (options) => ({
     ],
   },
   plugins: options.plugins.concat([
+    new ProgressBarPlugin(),
     new CheckerPlugin(),
     new webpack.ProvidePlugin({
       fetch: 'exports-loader?self.fetch!whatwg-fetch'

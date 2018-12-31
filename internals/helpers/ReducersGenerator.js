@@ -2,8 +2,8 @@ const fs = require('fs');
 const APP_FOLDER_BASE = './app/';
 const CONTAINERS_FOLDER_NAME = 'containers';
 const STORE_FOLDER_NAME = 'store';
-const REDUCER_FILE_NAME = 'reducer.js';
-const OUTPUT_FILE = APP_FOLDER_BASE + STORE_FOLDER_NAME + '/' + '_reducers.js';
+const REDUCER_FILE_NAME = 'reducer.ts';
+const OUTPUT_FILE = APP_FOLDER_BASE + STORE_FOLDER_NAME + '/' + '_reducers.ts';
 
 function GetReducersForScreens(path, stackPrefix = '') {
   let output = [];
