@@ -2,16 +2,11 @@ import { createStore, compose, applyMiddleware, combineReducers } from "redux";
 import { routerMiddleware, connectRouter } from 'connected-react-router';
 import { createLogger } from 'redux-logger';
 import thunkMiddleware from 'redux-thunk';
-import rootReducer from "./reducers";
-
 import { createBrowserHistory } from 'history';
 
+import rootReducer from "./reducers";
+
 // todo: вынести куда то
-declare global {
-  interface Window {
-    devToolsExtension: any;
-  }
-}
 
 const history = createBrowserHistory();
 
@@ -19,7 +14,7 @@ const initialState = {};
 const imSt = require('redux-immutable-state-invariant').default();
 
 let middlewares = [thunkMiddleware, routerMiddleware(history)];
-let enchancers: any[] = [];
+const enchancers: any[] = [];
 
 if (process.env.NODE_ENV === 'development') {
   const reduxImmutableStateInvariant = imSt;

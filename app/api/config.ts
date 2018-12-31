@@ -1,8 +1,8 @@
-export interface T_STATUS_CODES {
+export interface IStatusCode {
   [key: string]: number
 }
 
-export interface T_CONFIG {
+export interface IConfig {
   BASE_URL: string,
   TIMEOUT: number,
   HEADERS: {
@@ -10,7 +10,7 @@ export interface T_CONFIG {
   }
 }
 
-const config: T_CONFIG = {
+const config: IConfig = {
   BASE_URL: `${process.env.API_HOST}/${process.env.API_PREFIX}/v${process.env.API_VERSION}`,
   TIMEOUT: 10000,
   HEADERS: {
@@ -18,7 +18,7 @@ const config: T_CONFIG = {
   }
 };
 
-const STATUS_CODES: T_STATUS_CODES = {
+const STATUS_CODES: IStatusCode = {
   ACCEPTED: 202,
   BAD_GATEWAY: 502,
   BAD_REQUEST: 400,
@@ -41,8 +41,8 @@ const STATUS_CODES: T_STATUS_CODES = {
   METHOD_NOT_ALLOWED: 405,
   MOVED_PERMANENTLY: 301,
   MOVED_TEMPORARILY: 302,
-  MULTI_STATUS: 207,
   MULTIPLE_CHOICES: 300,
+  MULTI_STATUS: 207,
   NETWORK_AUTHENTICATION_REQUIRED: 511,
   NO_CONTENT: 204,
   NON_AUTHORITATIVE_INFORMATION: 203,

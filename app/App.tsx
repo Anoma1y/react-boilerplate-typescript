@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
+
 import Image from './components/Image';
 import { Dashboard } from './containers/Dashboard';
 

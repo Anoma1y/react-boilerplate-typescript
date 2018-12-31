@@ -1,11 +1,11 @@
 import { AT } from './actions';
 
-type INITIAL_STATE_TYPES = {
+interface IStateTypes {
   name: string,
   textAction: string
 }
 
-const INITIAL_STATE: INITIAL_STATE_TYPES = {
+const INITIAL_STATE: IStateTypes = {
   name: '',
   textAction: 'test'
 };

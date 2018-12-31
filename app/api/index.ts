@@ -1,9 +1,10 @@
 import axios from 'axios';
-import config, { T_STATUS_CODES } from './config';
+
+import config, { IStatusCode } from './config';
 
 class Api {
 
-  code: T_STATUS_CODES;
+  code: IStatusCode;
   http: any;
 
   constructor() {
@@ -41,7 +42,7 @@ class Api {
 
   registerBeforeInterceptor() {
     this.http.interceptors.request.use(
-      (config) => config,
+      (cfg) => cfg,
       (error) => Promise.reject(error)
     );
   }

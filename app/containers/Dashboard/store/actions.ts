@@ -2,10 +2,10 @@ export enum AT {
   CHANGE_NAME = 'Dashboard/CHANGE_NAME'
 }
 
-interface ChangeNameType {
+interface IChangeNameType {
   type: AT.CHANGE_NAME
   payload: string
 }
 
-export const changeName = (value): ChangeNameType => ({ type: AT.CHANGE_NAME, payload: value });
+export const changeName = (value): IChangeNameType => ({ type: AT.CHANGE_NAME, payload: value });
 
