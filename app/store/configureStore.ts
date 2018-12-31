@@ -4,13 +4,10 @@ import { createLogger } from 'redux-logger';
 import thunkMiddleware from 'redux-thunk';
 import { createBrowserHistory } from 'history';
 
-import rootReducer from "./reducers";
-
-// todo: вынести куда то
-
-const history = createBrowserHistory();
-
 const initialState = {};
+
+import rootReducer from "./reducers";
+const history = createBrowserHistory();
 const imSt = require('redux-immutable-state-invariant').default();
 
 let middlewares = [thunkMiddleware, routerMiddleware(history)];
