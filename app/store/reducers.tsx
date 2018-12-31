@@ -1,5 +1,7 @@
 import AutoReducers from './_reducers';
 
-export default {
+const reducers: object = {
   ...AutoReducers
 };
+
+export default reducers;

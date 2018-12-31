@@ -2,7 +2,7 @@ import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
 import { routerMiddleware, connectRouter } from 'connected-react-router';
 import { createLogger } from 'redux-logger';
 import thunkMiddleware from 'redux-thunk';
-import * as rootReducers from './reducers';
+import rootReducers from './reducers';
 
 declare global {
   interface Window {
@@ -34,9 +34,10 @@ export default (history, initialState: object = {}) => {
 
   const store = createStore(reducers, initialState, compose(applyMiddleware(...middlewares), ...enchancers));
 
+  // todo - сделать что то с require
   if (module.hot) {
-    module.hot.accept('./reducers', () => {
-      store.replaceReducer(rootReducers());
+    module.hot.accept('./reducers', (): void => {
+      store.replaceReducer(require('./reducers'));
     });
   }
 

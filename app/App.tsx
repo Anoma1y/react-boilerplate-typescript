@@ -13,7 +13,7 @@ const mapDispatchToProps = ({
 
 });
 
-@connect(mapStateToProps)
+@(connect(mapStateToProps) as any)
 export default class App extends React.Component {
   render() {
     return (
