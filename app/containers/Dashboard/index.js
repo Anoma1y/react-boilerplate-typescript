@@ -10,9 +10,6 @@ import {
   changeAuthor
 }))
 export class Dashboard extends React.Component {
-  componentDidMount() {
-    debugger;
-  }
 
   render() {
     const { Dashboard, changeName, changeAuthor } = this.props;
