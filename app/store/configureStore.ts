@@ -28,7 +28,7 @@ if (process.env.NODE_ENV === 'development') {
 const reducers = combineReducers({
   router: connectRouter(history),
   ...rootReducer
-});
+} as any);
 
 const store = createStore(
   reducers,

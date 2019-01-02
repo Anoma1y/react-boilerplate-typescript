@@ -71,7 +71,7 @@
        "check-open-brace",
        "check-whitespace"
      ],
-     "quotemark": [true, "single", "avoid-escape", "jsx-single"],
+     "quotemark": false,
      "radix": true,
      "switch-default": true,
 

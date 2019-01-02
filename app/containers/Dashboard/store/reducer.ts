@@ -1,10 +1,10 @@
 import { TYPES } from './actions';
 
-interface IStateTypes {
+export interface IStateTypes {
   name: string,
   author: {
     name: string,
-    age: number
+    age: string
   }
 }
 
@@ -12,7 +12,7 @@ const INITIAL_STATE: IStateTypes = {
   name: '',
   author: {
     name: '',
-    age: 0
+    age: ''
   }
 };
 

@@ -8,15 +8,12 @@ import configureStore from './store/configureStore';
 import App from './App';
 import './index.scss';
 
-const MOUNT_NODE = document.querySelector('#root');
-
-const store = configureStore.store;
-const history = configureStore.history;
+const MOUNT_NODE = document.querySelector('#root') as HTMLElement;
 
 const render = () => {
   ReactDOM.render(
-    <Provider store={store}>
-      <ConnectedRouter history={history}>
+    <Provider store={configureStore.store}>
+      <ConnectedRouter history={configureStore.history}>
         <App />
       </ConnectedRouter>
     </Provider>,
