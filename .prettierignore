@@ -1,8 +1,12 @@
-
+venv
 build/
-public/
-node_modules/
+node_modules
+node_modules/**
 internals/
 package-lock.json
 yarn.lock
 package.json
+npm-debug.log/
+tmp
+.sass-cache/
+.vscode/

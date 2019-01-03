@@ -6,24 +6,32 @@
   "scripts": {
     "build": "cross-env NODE_ENV=production webpack --env=production --config=internals/webpack/webpack.prod.config.js --mode=production --color -p --progress --hide-modules --display-optimization-bailout",
     "dev": "cross-env NODE_ENV=development webpack-dev-server --env=development --config=internals/webpack/webpack.dev.config.js --mode=development --port 8080",
-    "lint": "yarn run lint:js",
-    "lint:css": "stylelint './app/**/*.js'",
     "generate": "plop --plopfile internals/generators/index.js",
     "generate:reducers": "node ./internals/helpers/ReducersGenerator.js",
-    "prettify": "prettier --write app/**/*.js"
+    "prettier:js": "./node_modules/.bin/prettier --config .prettierrc --write *.{js, jsx}",
+    "prettier:tsx": "./node_modules/.bin/prettier --config .prettierrc --write *.{tsx, ts}",
+    "prettier:json": "./node_modules/.bin/prettier --config .prettierrc  --write *.json",
+    "stylelint:css": "./node_modules/.bin/stylelint '**/*.{tsx, ts}'",
+    "tslint": "./node_modules/.bin/tslint --config tslint.json --project tsconfig.json"
+  },
+  "lint-staged": {
+    "*.{tsx, ts}": [
+      "yarn run prettier:tsx",
+      "yarn run tslint",
+      "yarn run stylelint:css",
+      "git add"
+    ],
+    "*.json": [
+      "yarn run prettier:json",
+      "git add"
+    ],
+    "*.{jsx, js}": [
+      "yarn run prettier:js",
+      "git add"
+    ]
   },
   "author": "Anoma1y",
   "license": "ISC",
-  "lint-staged": {
-    "*.js": [
-      "npm run lint:eslint:fix",
-      "git add --force"
-    ],
-    "*.json": [
-      "prettier --write",
-      "git add --force"
-    ]
-  },
   "browserslist": [
     "> 1%",
     "last 2 versions"
@@ -38,8 +46,17 @@
     "@babel/plugin-transform-runtime": "^7.2.0",
     "@babel/preset-env": "^7.2.3",
     "@babel/preset-react": "^7.0.0",
+    "@babel/preset-typescript": "^7.1.0",
+    "@types/node": "^10.12.18",
+    "@types/react": "^16.7.18",
+    "@types/react-dom": "^16.0.11",
+    "@types/react-redux": "^6.0.11",
+    "@types/react-router-dom": "^4.3.1",
+    "@types/react-router-redux": "^5.0.17",
+    "@types/webpack-env": "^1.13.6",
+    "autoprefixer": "^9.4.3",
+    "awesome-typescript-loader": "^5.2.1",
     "babel-cli": "^6.26.0",
-    "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.4",
     "babel-plugin-dynamic-import-node": "^2.2.0",
     "babel-plugin-react-transform": "^3.0.0",
@@ -50,12 +67,6 @@
     "cross-env": "^5.2.0",
     "css-loader": "^2.1.0",
     "empty": "^0.10.1",
-    "eslint": "^5.11.1",
-    "eslint-config-airbnb": "^17.1.0",
-    "eslint-loader": "^2.1.1",
-    "eslint-plugin-import": "^2.14.0",
-    "eslint-plugin-jsx-a11y": "^6.1.2",
-    "eslint-plugin-react": "^7.12.0",
     "eventsource-polyfill": "^0.9.6",
     "exports-loader": "^0.7.0",
     "html-loader": "^0.5.5",
@@ -68,7 +79,10 @@
     "node-sass": "^4.11.0",
     "null-loader": "^0.1.1",
     "plop": "^2.2.0",
+    "postcss-loader": "^3.0.0",
     "prettier": "^1.15.3",
+    "prettier-stylelint": "^0.4.2",
+    "progress-bar-webpack-plugin": "^1.11.0",
     "prop-types": "^15.6.2",
     "redux-logger": "^3.0.6",
     "rimraf": "^2.6.2",
@@ -78,6 +92,12 @@
     "stylelint-config-recommended": "^2.1.0",
     "stylelint-config-styled-components": "^0.1.1",
     "stylelint-processor-styled-components": "^1.5.1",
+    "ts-loader": "^5.3.2",
+    "tslint": "^5.12.0",
+    "tslint-config-prettier": "^1.17.0",
+    "tslint-react": "^3.6.0",
+    "tslint-react-a11y": "^1.0.0",
+    "typescript": "^3.2.2",
     "url-loader": "^1.1.2",
     "webpack": "^4.28.2",
     "webpack-cli": "^3.1.2",
