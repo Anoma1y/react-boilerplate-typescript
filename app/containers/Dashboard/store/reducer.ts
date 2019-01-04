@@ -1,4 +1,9 @@
-import { TYPES } from './actions';
+import { IAction } from './actions';
+
+export const enum TYPES {
+  CHANGE_NAME = 'Dashboard/CHANGE_NAME',
+  CHANGE_AUTHOR = 'Dashboard/CHANGE_AUTHOR'
+}
 
 export interface IStateTypes {
   name: string,
@@ -21,4 +26,4 @@ const HANDLERS = {
   [TYPES.CHANGE_AUTHOR]: (state, { payload }) => ({ ...state, author: { ...state.author, [payload.key]: payload.value }}),
 };
 
-export default (state = INITIAL_STATE, action) => action.type in HANDLERS ? HANDLERS[action.type](state, action) : state;
+export default (state: IStateTypes = INITIAL_STATE, action: IAction) => action.type in HANDLERS ? HANDLERS[action.type](state, action) : state;

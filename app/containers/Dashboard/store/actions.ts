@@ -1,8 +1,12 @@
 import { Dispatch } from 'redux';
+import { TYPES } from './reducer';
 
-export const enum TYPES {
-  CHANGE_NAME = 'Dashboard/CHANGE_NAME',
-  CHANGE_AUTHOR = 'Dashboard/CHANGE_AUTHOR'
+export type IAction = {
+  type: string
+  payload: string | {
+    key: string,
+    value: any
+  }
 }
 
 export type IPromiseAuthor = {
@@ -10,9 +14,9 @@ export type IPromiseAuthor = {
   status: string
 }
 
-export const changeName = (value: string) => ({ type: TYPES.CHANGE_NAME, payload: value });
+export const changeName = (value: string): IAction => ({ type: TYPES.CHANGE_NAME, payload: value });
 
-export const changeAuthor = (key: string, value: string) => ({ type: TYPES.CHANGE_AUTHOR, payload: { key, value } });
+export const changeAuthor = (key: string, value: string): IAction => ({ type: TYPES.CHANGE_AUTHOR, payload: { key, value } });
 
 export const changeThunkAuthor = (): Function => (dispatch: Dispatch): void => {
   dispatch(changeAuthor('name', 'Ivan'));
