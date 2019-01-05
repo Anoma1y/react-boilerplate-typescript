@@ -4,7 +4,7 @@ import config, { IStatusCode } from './config';
 
 class Api {
 
-  private code: IStatusCode;
+  code: IStatusCode;
   private http: any;
 
   constructor() {

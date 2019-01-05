@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
-import { IStateTypes } from './store/reducer';
+import { IDashboardTypes } from './store/reducer';
 import {
   changeName,
   changeAuthor,
@@ -10,21 +10,16 @@ import {
   IPromiseAuthor
 } from './store/actions';
 
-interface StateProps {
-  Dashboard: IStateTypes
-}
-
-interface DispatchProps {
+interface IProps {
+  Dashboard: IDashboardTypes
   changeName?: (value: string) => void
   changeAuthor?: (key: string, value: string) => void
   changeThunkAuthor?: () => void
   changePromiseAuthor?: (name: string, age: string) => Promise<IPromiseAuthor>
 }
 
-type IProps = StateProps & DispatchProps
-
-type IState = {
-
+interface IState {
+  ready: boolean
 }
 
 const mapStateToProps = ({ Dashboard }) => ({ Dashboard });
@@ -38,10 +33,17 @@ const mapDispathToProps = {
 
 class Dashboard extends React.Component<IProps, IState> {
 
+  state = {
+    ready: false
+  };
+
   componentDidMount() {
     this.props.changePromiseAuthor!('Hello', '22')
       .then((data) => {
         console.log(data)
+        this.setState({
+          ready: true
+        })
       })
   }
 
