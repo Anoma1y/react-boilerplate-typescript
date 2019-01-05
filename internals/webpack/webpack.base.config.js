@@ -2,19 +2,22 @@ const path = require('path');
 const webpack = require('webpack');
 const { CheckerPlugin } = require('awesome-typescript-loader');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const devMode = process.env.NODE_ENV !== 'production';
 const ProgressBarPlugin = require('progress-bar-webpack-plugin');
+
+const devMode = process.env.NODE_ENV !== 'production';
 
 process.noDeprecation = true;
 
 module.exports = (options) => ({
   mode: options.mode,
   entry: options.entry,
-  output: Object.assign({
-    path: path.resolve(process.cwd(), 'build'),
-    publicPath: '/',
-  }, options.output),
-
+  output: Object.assign(
+    {
+      path: path.resolve(process.cwd(), 'build'), // Compile production build into dir build
+      publicPath: '/',
+    },
+    options.output
+  ),
   module: {
     rules: [
       {
@@ -55,30 +58,33 @@ module.exports = (options) => ({
         use: 'file-loader',
       },
       {
-        test: /\.(jpg|png|gif)$/,
+        test: /\.(jpe?g|png|gif)$/,
         use: [
-          'file-loader',
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 10 * 1024, // limit: 10 kb
+            }
+          },
           {
             loader: 'image-webpack-loader',
             options: {
-              query: {
-                gifsicle: {
-                  interlaced: true
-                },
-                mozjpeg: {
-                  progressive: true
-                },
-                optipng: {
-                  optimizationLevel: 7
-                },
-                pngquant: {
-                  quality: '65-90',
-                  speed: 4
-                }
-              }
-            },
-          },
-        ],
+              mozjpeg: {
+                enabled: false
+              },
+              gifsicle: {
+                interlaced: false,
+              },
+              optipng: {
+                optimizationLevel: 7,
+              },
+              pngquant: {
+                quality: '65-90',
+                speed: 4,
+              },
+            }
+          }
+        ]
       },
       {
         test: /\.html$/,
@@ -108,7 +114,10 @@ module.exports = (options) => ({
     })
   ]),
   resolve: {
-    modules: ['app', 'node_modules'],
+    modules: [
+      'node_modules',
+      'app'
+    ],
     extensions: [
       '.ts',
       '.tsx',
@@ -124,9 +133,10 @@ module.exports = (options) => ({
     ]
   },
   devtool: options.devtool,
+  devServer: options.devserver,
   target: 'web',
   performance: options.performance || {},
-  optimization: {
+  optimization: options.optimization || {
     namedModules: true,
     splitChunks: {
       name: 'vendor',

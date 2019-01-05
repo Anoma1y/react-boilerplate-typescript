@@ -4,6 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CircularDependencyPlugin = require('circular-dependency-plugin');
 
 module.exports = require('./webpack.base.config')({
+  devtool: 'eval-source-map',
   mode: 'development',
   entry: [
     'eventsource-polyfill',
@@ -13,6 +14,11 @@ module.exports = require('./webpack.base.config')({
   output: {
     filename: '[name].js',
     chunkFilename: '[name].chunk.js'
+  },
+  optimization: {
+    splitChunks: {
+      'chunks': 'all'
+    }
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
@@ -25,7 +31,16 @@ module.exports = require('./webpack.base.config')({
       failOnError: false
     })
   ],
-  devtool: 'eval-source-map',
+  devserver: {
+    hot: true,
+    inline: true,
+    overlay: true,
+    quiet: false,
+    stats: 'errors-only',
+    historyApiFallback: true,
+    contentBase: path.resolve(process.cwd() + '/public'),
+    watchContentBase: true
+  },
   performance: {
     hints: false
   }

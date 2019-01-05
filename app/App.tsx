@@ -15,7 +15,7 @@ class App extends React.Component {
     return (
       <div className={'page'}>
         <Image
-          src={'https://www.gettyimages.ie/gi-resources/images/Homepage/Hero/UK/CMS_Creative_164657191_Kingfisher.jpg'}
+          src={'/static/images/15404118224970.jpg'}
           alt={'qwe'}
         />
         <Dashboard />

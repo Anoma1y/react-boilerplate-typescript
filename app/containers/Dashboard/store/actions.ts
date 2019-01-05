@@ -41,5 +41,5 @@ export const changePromiseAuthor = (name: string, age: string) => (dispatch: Dis
       code: 200,
       status: 'OK'
     });
-  })
+  }, 2000)
 });

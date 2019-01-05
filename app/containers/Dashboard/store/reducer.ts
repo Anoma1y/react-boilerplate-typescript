@@ -1,8 +1,8 @@
 import { IDashboardAction } from './actions';
 
 export const enum TYPES {
-  CHANGE_NAME = '@Dashboard/CHANGE_NAME',
-  CHANGE_AUTHOR = '@Dashboard/CHANGE_AUTHOR'
+  CHANGE_NAME = 'Dashboard/CHANGE_NAME',
+  CHANGE_AUTHOR = 'Dashboard/CHANGE_AUTHOR'
 }
 
 export interface IDashboardTypes {
