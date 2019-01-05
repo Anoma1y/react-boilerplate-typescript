@@ -1,19 +1,16 @@
 import { Dispatch } from 'redux';
 import { TYPES } from './reducer';
 
-export type IPromiseAuthor = {
-  code: number
-  status: string
+interface IAction {
+  type: TYPES
+  payload: any
 }
 
-interface IChangeNameAction {
-  type: TYPES.CHANGE_NAME
-  payload: string
-}
+interface IChangeNameAction extends IAction { type: TYPES.CHANGE_NAME }
 
 export const changeName = (value: string): IChangeNameAction => ({ type: TYPES.CHANGE_NAME, payload: value });
 
-interface IChangeAuthorAction {
+interface IChangeAuthorAction extends IAction {
   type: TYPES.CHANGE_AUTHOR
   payload: {
     key: string
@@ -29,6 +26,11 @@ export const changeThunkAuthor = (): Function => (dispatch: Dispatch): void => {
   dispatch(changeAuthor('name', 'Ivan'));
   dispatch(changeAuthor('age', '22'));
 };
+
+export type IPromiseAuthor = {
+  code: number
+  status: string
+}
 
 export const changePromiseAuthor = (name: string, age: string) => (dispatch: Dispatch): Promise<IPromiseAuthor> => new Promise((resolve): void => {
   dispatch(changeName('Test change name'));
