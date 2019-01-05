@@ -5,7 +5,7 @@ export const enum TYPES {
   CHANGE_AUTHOR = 'Dashboard/CHANGE_AUTHOR'
 }
 
-export interface IStateTypes {
+export interface IDashboardTypes {
   name: string,
   author: {
     name: string,
@@ -13,7 +13,7 @@ export interface IStateTypes {
   }
 }
 
-const INITIAL_STATE: IStateTypes = {
+const INITIAL_STATE: IDashboardTypes = {
   name: '',
   author: {
     name: '',
@@ -26,4 +26,4 @@ const HANDLERS = {
   [TYPES.CHANGE_AUTHOR]: (state, { payload }) => ({ ...state, author: { ...state.author, [payload.key]: payload.value }}),
 };
 
-export default (state: IStateTypes = INITIAL_STATE, action: IAction) => action.type in HANDLERS ? HANDLERS[action.type](state, action) : state;
+export default (state: IDashboardTypes = INITIAL_STATE, action: IAction) => action.type in HANDLERS ? HANDLERS[action.type](state, action) : state;
