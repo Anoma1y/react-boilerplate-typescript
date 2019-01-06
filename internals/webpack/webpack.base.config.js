@@ -42,15 +42,7 @@ module.exports = (options) => ({
           devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
           'css-loader',
           'postcss-loader',
-          {
-            loader: 'sass-loader',
-            options: {
-              data: '@import "variables";',
-              includePaths: [
-                path.resolve(process.cwd(), "app/styles/")
-              ]
-            }
-          }
+          'sass-loader'
         ]
       },
       {
