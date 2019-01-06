@@ -1,4 +1,4 @@
-import AutoReducers from './_reducers';
+import AutoReducers from "./_reducers";
 
 export default {
   ...AutoReducers

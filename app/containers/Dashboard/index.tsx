@@ -1,25 +1,24 @@
-import * as React from 'react';
-import { connect } from 'react-redux';
-import { IDashboardTypes } from './store/reducer';
+import * as React from "react";
+import { connect } from "react-redux";
+import { IDashboardTypes } from "./store/reducer";
 import {
   changeName,
   changeAuthor,
   changeThunkAuthor,
   changePromiseAuthor,
-
   IPromiseAuthor
-} from './store/actions';
+} from "./store/actions";
 
 interface IProps {
-  Dashboard: IDashboardTypes
-  changeName?: (value: string) => void
-  changeAuthor?: (key: string, value: string) => void
-  changeThunkAuthor?: () => void
-  changePromiseAuthor?: (name: string, age: string) => Promise<IPromiseAuthor>
+  Dashboard: IDashboardTypes;
+  changeName?: (value: string) => void;
+  changeAuthor?: (key: string, value: string) => void;
+  changeThunkAuthor?: () => void;
+  changePromiseAuthor?: (name: string, age: string) => Promise<IPromiseAuthor>;
 }
 
 interface IState {
-  ready: boolean
+  ready: boolean;
 }
 
 const mapStateToProps = ({ Dashboard }) => ({ Dashboard });
@@ -32,23 +31,20 @@ const mapDispathToProps = {
 };
 
 class Dashboard extends React.Component<IProps, IState> {
-
   state = {
     ready: false
   };
 
   componentDidMount() {
-    this.props.changePromiseAuthor!('Hello', '22')
-      .then((data) => {
-        console.log(data)
-        this.setState({
-          ready: true
-        })
-      })
+    this.props.changePromiseAuthor!("Hello", "22").then((data) => {
+      console.log(data);
+      this.setState({
+        ready: true
+      });
+    });
   }
 
   render() {
-
     return (
       <div>
         <input
@@ -60,17 +56,20 @@ class Dashboard extends React.Component<IProps, IState> {
         <input
           type="text"
           value={this.props.Dashboard.author.name}
-          onChange={(e) => this.props.changeAuthor!('name', e.target.value)}
+          onChange={(e) => this.props.changeAuthor!("name", e.target.value)}
         />
         <input
           type="text"
           value={this.props.Dashboard.author.age}
-          onChange={(e) => this.props.changeAuthor!('age', e.target.value)}
+          onChange={(e) => this.props.changeAuthor!("age", e.target.value)}
         />
-        <input type="submit" onClick={() => this.props.changeThunkAuthor!()}/>
+        <input type="submit" onClick={() => this.props.changeThunkAuthor!()} />
       </div>
     );
   }
 }
 
-export default (connect(mapStateToProps, mapDispathToProps) as any)(Dashboard)
+export default (connect(
+  mapStateToProps,
+  mapDispathToProps
+) as any)(Dashboard);

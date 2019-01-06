@@ -1,14 +1,14 @@
 // import 'babel-polyfill';
-import * as React from 'react';
-import * as ReactDOM from 'react-dom';
-import { ConnectedRouter } from 'connected-react-router';
-import { Provider } from 'react-redux';
+import * as React from "react";
+import * as ReactDOM from "react-dom";
+import { ConnectedRouter } from "connected-react-router";
+import { Provider } from "react-redux";
 
-import configureStore from './store/configureStore';
-import App from './App';
-import './index.scss';
+import configureStore from "./store/configureStore";
+import App from "./App";
+import "./index.scss";
 
-const MOUNT_NODE = document.querySelector('#root') as HTMLElement;
+const MOUNT_NODE = document.querySelector("#root") as HTMLElement;
 
 const render = () => {
   ReactDOM.render(
@@ -17,7 +17,7 @@ const render = () => {
         <App />
       </ConnectedRouter>
     </Provider>,
-    MOUNT_NODE,
+    MOUNT_NODE
   );
 };
 

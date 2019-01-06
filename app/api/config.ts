@@ -1,20 +1,22 @@
 export interface IStatusCode {
-  [key: string]: number
+  [key: string]: number;
 }
 
 export interface IConfig {
-  BASE_URL: string,
-  TIMEOUT: number,
+  BASE_URL: string;
+  TIMEOUT: number;
   HEADERS: {
-    [key: string]: string | number | boolean
-  }
+    [key: string]: string | number | boolean;
+  };
 }
 
 const config: IConfig = {
-  BASE_URL: `${process.env.API_HOST}/${process.env.API_PREFIX}/v${process.env.API_VERSION}`,
+  BASE_URL: `${process.env.API_HOST}/${process.env.API_PREFIX}/v${
+    process.env.API_VERSION
+  }`,
   TIMEOUT: 10000,
   HEADERS: {
-    'Content-Type': 'application/json',
+    "Content-Type": "application/json"
   }
 };
 
@@ -72,7 +74,7 @@ const STATUS_CODES: IStatusCode = {
   UNAUTHORIZED: 401,
   UNPROCESSABLE_ENTITY: 422,
   UNSUPPORTED_MEDIA_TYPE: 415,
-  USE_PROXY: 305,
+  USE_PROXY: 305
 };
 
 export default {

@@ -1,9 +1,8 @@
-import axios from 'axios';
+import axios from "axios";
 
-import config, { IStatusCode } from './config';
+import config, { IStatusCode } from "./config";
 
 class Api {
-
   code: IStatusCode;
   private http: any;
 
@@ -24,13 +23,11 @@ class Api {
 
   addHeader(key: string, value: string | number) {
     return new Promise((resolve) => {
-
       this.http.defaults.headers = {
         ...this.http.defaults.headers,
         [key]: value
       };
       resolve();
-
     });
   }
 

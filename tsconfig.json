@@ -11,7 +11,7 @@
     "newLine": "LF",
     "sourceMap": true,
     "allowJs": true,
-    "forceConsistentCasingInFileNames":true,
+    "forceConsistentCasingInFileNames": true,
     "noUnusedParameters": true,
     "pretty": true,
     "strictPropertyInitialization": true,
@@ -25,15 +25,9 @@
     "allowSyntheticDefaultImports": false,
     "noStrictGenericChecks": true
   },
-  "include": [
-    "./app/**/*"
-  ],
-  "exclude": [
-    "node_modules"
-  ],
+  "include": ["./app/**/*"],
+  "exclude": ["node_modules"],
   "awesomeTypescriptLoaderOptions": {
-    "reportFiles": [
-      "./app/**/*"
-    ]
+    "reportFiles": ["./app/**/*"]
   }
 }
