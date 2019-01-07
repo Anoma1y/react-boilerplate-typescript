@@ -36,8 +36,7 @@ class Dashboard extends React.Component<IProps, IState> {
   };
 
   componentDidMount() {
-    this.props.changePromiseAuthor!("Hello", "22").then((data) => {
-      console.log(data);
+    this.props.changePromiseAuthor!("Hello", "22").then(() => {
       this.setState({
         ready: true
       });

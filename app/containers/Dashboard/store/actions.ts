@@ -23,10 +23,7 @@ interface IChangeAuthorAction extends IAction {
   };
 }
 
-export const changeAuthor = (
-  key: string,
-  value: string
-): IChangeAuthorAction => ({
+export const changeAuthor = (key: string, value: string): IChangeAuthorAction => ({
   type: TYPES.CHANGE_AUTHOR,
   payload: { key, value }
 });
@@ -47,15 +44,19 @@ export const changePromiseAuthor = (name: string, age: string) => (
   dispatch: Dispatch
 ): Promise<IPromiseAuthor> =>
   new Promise(
-    (resolve): void => {
-      dispatch(changeName("Test change name"));
-      setTimeout(() => {
-        dispatch(changeAuthor("name", name));
-        dispatch(changeAuthor("age", age));
-        resolve({
-          code: 200,
-          status: "OK"
-        });
-      }, 2000);
+    (resolve, reject): void => {
+      try {
+        dispatch(changeName("Test change name"));
+        setTimeout(() => {
+          dispatch(changeAuthor("name", name));
+          dispatch(changeAuthor("age", age));
+          resolve({
+            code: 200,
+            status: "OK"
+          });
+        }, 2000);
+      } catch (e) {
+        reject(e);
+      }
     }
   );

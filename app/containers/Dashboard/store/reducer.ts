@@ -29,7 +29,5 @@ const HANDLERS = {
   })
 };
 
-export default (
-  state: IDashboardTypes = INITIAL_STATE,
-  action: IDashboardAction
-) => (action.type in HANDLERS ? HANDLERS[action.type](state, action) : state);
+export default (state: IDashboardTypes = INITIAL_STATE, action: IDashboardAction) =>
+  action.type in HANDLERS ? HANDLERS[action.type](state, action) : state;

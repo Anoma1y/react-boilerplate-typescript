@@ -1,6 +1,6 @@
 {
   "tabWidth": 2,
-  "printWidth": 80,
+  "printWidth": 100,
   "parser": "typescript",
   "semi": true,
   "trailingComma": "none",
@@ -8,13 +8,14 @@
   "jsxBracketSameLine": false,
   "bracketSpacing": true,
   "arrowParens": "always",
+  "endOfLine": "lf",
   "overrides": [
     {
       "files": "*.js",
       "options": {
         "parser": "babylon",
         "semi": true,
-        "singleQuote": false,
+        "singleQuote": false
       }
     },
     {

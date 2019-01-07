@@ -11,9 +11,7 @@ export interface IConfig {
 }
 
 const config: IConfig = {
-  BASE_URL: `${process.env.API_HOST}/${process.env.API_PREFIX}/v${
-    process.env.API_VERSION
-  }`,
+  BASE_URL: `${process.env.API_HOST}/${process.env.API_PREFIX}/v${process.env.API_VERSION}`,
   TIMEOUT: 10000,
   HEADERS: {
     "Content-Type": "application/json"

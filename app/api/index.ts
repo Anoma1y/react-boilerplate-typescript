@@ -38,17 +38,11 @@ class Api {
   }
 
   private registerBeforeInterceptor() {
-    this.http.interceptors.request.use(
-      (cfg) => cfg,
-      (error) => Promise.reject(error)
-    );
+    this.http.interceptors.request.use((cfg) => cfg, (error) => Promise.reject(error));
   }
 
   private registerAfterInterceptor() {
-    this.http.interceptors.response.use(
-      (response) => response,
-      (error) => Promise.reject(error)
-    );
+    this.http.interceptors.response.use((response) => response, (error) => Promise.reject(error));
   }
 }
 

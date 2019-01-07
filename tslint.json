@@ -50,13 +50,7 @@
     "no-trailing-whitespace": false,
     "no-unused-expression": true,
     "no-use-before-declare": false,
-    "one-line": [
-      true,
-      "check-catch",
-      "check-else",
-      "check-open-brace",
-      "check-whitespace"
-    ],
+    "one-line": [true, "check-catch", "check-else", "check-open-brace", "check-whitespace"],
     "quotemark": false,
     "radix": true,
     "switch-default": true,
