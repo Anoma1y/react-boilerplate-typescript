@@ -1,13 +1,17 @@
-import React, { Component } from 'react';
+import * as React from 'react';
 {{#if needStyledComponents}}
 import styled from 'styled-components';
 {{/if}}
 
-class {{ properCase name }} extends Component {
-  componentDidMount() {}
+interface IProps {
 
-  componentWillUnmount() {}
+}
 
+interface IState {
+
+}
+
+class {{ properCase name }} extends React.Component<IProps, IState> {
   render() {
     return (
       <div>
