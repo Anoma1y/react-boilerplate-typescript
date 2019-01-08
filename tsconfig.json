@@ -3,7 +3,7 @@
     "rootDir": "app",
     "baseUrl": "app",
     "outDir": "./build/",
-    "module": "es6",
+    "module": "esnext",
     "target": "es5",
     "jsx": "react",
     "lib": ["es5", "es6", "es7", "es2017", "dom"],
