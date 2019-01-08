@@ -34,12 +34,6 @@ module.exports = {
     },
     {
       type: 'confirm',
-      name: 'needPropTypes',
-      message: 'Need prop-types?',
-      default: true,
-    },
-    {
-      type: 'confirm',
       name: 'needStyledComponents',
       message: 'Need styled-components?',
       default: true,
@@ -70,20 +64,10 @@ module.exports = {
       {
         type: 'add',
         path: `${currentDirectory}/{{properCase name}}/index.js`,
-        // path: '../../app/components/{{properCase name}}/index.js',
         templateFile: templateComponentSrc,
         abortOnFail: true,
       },
     ];
-
-    if (data.needTests) {
-      actions.push(      {
-        type: 'add',
-        path: `${currentDirectory}/{{properCase name}}/tests/index.test.js`,
-        templateFile: './components/test.js.hbs',
-        abortOnFail: true,
-      },);
-    }
 
     return actions;
   },

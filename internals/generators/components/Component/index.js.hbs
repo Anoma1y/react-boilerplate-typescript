@@ -1,23 +1,8 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-{{#if needPropTypes}}
-import PropTypes from 'prop-types';
-{{/if}}
 {{#if needStyledComponents}}
 import styled from 'styled-components';
 {{/if}}
 
-const mapStateToProps = ({
-
-}) => ({
-
-});
-
-const mapDispatchToProps = ({
-
-});
-
-@connect(mapStateToProps, mapDispatchToProps)
 class {{ properCase name }} extends Component {
   componentDidMount() {}
 
@@ -31,12 +16,6 @@ class {{ properCase name }} extends Component {
     )
   }
 }
-
-{{#if needPropTypes}}
-{{ properCase name }}.propTypes = {};
-
-{{ properCase name }}.defaultProps = {};
-{{/if}}
 
 {{#if needStyledComponents}}
 const Styled{{ properCase name }} = styled({{ properCase name }})`

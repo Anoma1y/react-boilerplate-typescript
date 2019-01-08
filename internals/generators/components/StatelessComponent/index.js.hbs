@@ -1,7 +1,4 @@
 import React from 'react';
-{{#if needPropTypes}}
-import PropTypes from 'prop-types';
-{{/if}}
 {{#if needStyledComponents}}
 import styled from 'styled-components';
 {{/if}}
@@ -11,10 +8,6 @@ const {{ properCase name }} = () => (
 
   </div>
 );
-
-{{#if needPropTypes}}
-{{ properCase name }}.propTypes = {};
-{{/if}}
 
 {{#if needStyledComponents}}
 const Styled{{ properCase name }} = styled({{ properCase name }})`
