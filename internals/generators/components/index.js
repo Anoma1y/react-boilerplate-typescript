@@ -44,26 +44,26 @@ module.exports = {
 
     switch (data.type) {
       case 'Stateless Function': {
-        templateComponentSrc = './components/StatelessComponent/index.js.hbs';
+        templateComponentSrc = './components/StatelessComponent/index.tsx.hbs';
         break;
       }
       case 'Pure Component': {
-        templateComponentSrc = './components/PureComponent/index.js.hbs';
+        templateComponentSrc = './components/PureComponent/index.tsx.hbs';
         break;
       }
       case 'Component': {
-        templateComponentSrc = './components/Component/index.js.hbs';
+        templateComponentSrc = './components/Component/index.tsx.hbs';
         break;
       }
       default: {
-        templateComponentSrc = './components/Component/index.js.hbs';
+        templateComponentSrc = './components/Component/index.tsx.hbs';
       }
     }
 
     const actions = [
       {
         type: 'add',
-        path: `${currentDirectory}/{{properCase name}}/index.js`,
+        path: `${currentDirectory}/{{properCase name}}/index.tsx`,
         templateFile: templateComponentSrc,
         abortOnFail: true,
       },
