@@ -6,23 +6,29 @@ import { createBrowserHistory } from "history";
 
 import rootReducer from "./reducers";
 
-const initialState = {};
+const initialState: {} = {};
 
 const history = createBrowserHistory();
-const imSt = require("redux-immutable-state-invariant").default();
 
 let middlewares = [thunkMiddleware, routerMiddleware(history)];
 const enchancers: any[] = [];
 
 if (process.env.NODE_ENV === "development") {
-  const reduxImmutableStateInvariant = imSt;
-  const logger = createLogger({ collapsed: true });
-
+  const reduxImmutableStateInvariant = require("redux-immutable-state-invariant").default();
+  const logger = createLogger({
+    collapsed: true
+  });
   const { devToolsExtension } = window;
+
   if (typeof devToolsExtension === "function") {
     enchancers.push(devToolsExtension());
   }
-  middlewares = [...middlewares, reduxImmutableStateInvariant, logger];
+
+  middlewares = [
+    ...middlewares,
+    reduxImmutableStateInvariant,
+    logger
+  ];
 }
 
 const reducers = combineReducers({
