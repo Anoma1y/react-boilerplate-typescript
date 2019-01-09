@@ -43,22 +43,16 @@ function GenerateFileContents(reducers) {
   let imports = [];
   let definitions = [];
 
-  // Sort lines first
   reducers.map(reducer => {
-    // Import line
     imports.push("import " + reducer[NAME] + " from '" + reducer[FULLPATH].slice(APP_FOLDER_BASE.length) + "';");
-
-    // Definition line
     definitions.push(reducer[NAME]);
   });
 
-  // Append import block
   output += imports.join('\n', imports);
   if (imports.length) {
     output += '\n\n';
   }
 
-  // Append object definition
   output += 'export default {\n  ';
   output += definitions.join(',\n  ') + '\n';
   output += '};\n';
@@ -72,7 +66,6 @@ const reducers = GetReducersForScreens('./app/' + CONTAINERS_FOLDER_NAME);
 console.log('Generating file output');
 const contents = GenerateFileContents(reducers);
 
-// Keep backup of the old file
 if (fs.existsSync(OUTPUT_FILE)) {
   console.log('Backing up previous version to "' + OUTPUT_FILE + '.bak"');
   fs.renameSync(OUTPUT_FILE, OUTPUT_FILE + '.bak');

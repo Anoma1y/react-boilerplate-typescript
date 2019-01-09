@@ -13,6 +13,7 @@ class App extends React.Component {
     return (
       <div className={"page"}>
         <Image src={"/static/images/15404118224970.jpg"} alt={"qwe"} />
+        <Image src={"/static/images/15470303755971.jpg"} alt={"ewq"}/>
         <Dashboard />
         <h1>Hello World</h1>
       </div>

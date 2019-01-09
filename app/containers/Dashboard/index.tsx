@@ -23,7 +23,7 @@ interface IState {
 
 const mapStateToProps = ({ Dashboard }) => ({ Dashboard });
 
-const mapDispathToProps = {
+const mapDispatchToProps = {
   changeName,
   changeAuthor,
   changeThunkAuthor,
@@ -70,5 +70,5 @@ class Dashboard extends React.Component<IProps, IState> {
 
 export default (connect(
   mapStateToProps,
-  mapDispathToProps
+  mapDispatchToProps
 ) as any)(Dashboard);
