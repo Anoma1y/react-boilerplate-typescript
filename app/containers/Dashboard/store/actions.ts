@@ -1,22 +1,22 @@
 import { Dispatch } from "redux";
 import { TYPES } from "./reducer";
 
-interface IAction {
-  type: TYPES;
-  payload: any;
+// todo: убрать куда нибудь
+export interface IAction<TType> {
+  type: TType;
+  payload?: any;
 }
 
-interface IChangeNameAction extends IAction {
-  type: TYPES.CHANGE_NAME;
-}
+export const reset = (): IAction<TYPES.RESET> => ({
+  type: TYPES.RESET
+});
 
-export const changeName = (value: string): IChangeNameAction => ({
+export const changeName = (value: string): IAction<TYPES.CHANGE_NAME> => ({
   type: TYPES.CHANGE_NAME,
   payload: value
 });
 
-interface IChangeAuthorAction extends IAction {
-  type: TYPES.CHANGE_AUTHOR;
+interface IChangeAuthorAction extends IAction<TYPES.CHANGE_AUTHOR> {
   payload: {
     key: string;
     value: string;
@@ -27,8 +27,6 @@ export const changeAuthor = (key: string, value: string): IChangeAuthorAction =>
   type: TYPES.CHANGE_AUTHOR,
   payload: { key, value }
 });
-
-export type IDashboardAction = IChangeNameAction | IChangeAuthorAction;
 
 export const changeThunkAuthor = (): Function => (dispatch: Dispatch): void => {
   dispatch(changeAuthor("name", "Ivan"));
@@ -56,3 +54,22 @@ export const changePromiseAuthor = (name: string, age: string) => (dispatch: Dis
       }
     }
   );
+
+// export interface IAction<TType, TPayload> {
+//   type: TType;
+//   payload?: TPayload;
+// }
+//
+// export const reset = (): IAction<TYPES.RESET, void> => ({
+//   type: TYPES.RESET
+// });
+//
+// export const changeName = (value: string): IAction<TYPES.CHANGE_NAME, string> => ({
+//   type: TYPES.CHANGE_NAME,
+//   payload: value
+// });
+//
+// export const changeAuthor = (key: string, value: string): IAction<TYPES.CHANGE_AUTHOR, { key: string; value: string }> => ({
+//   type: TYPES.CHANGE_AUTHOR,
+//   payload: { key, value }
+// });
