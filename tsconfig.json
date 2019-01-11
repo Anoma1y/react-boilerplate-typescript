@@ -23,7 +23,12 @@
     "strictNullChecks": true,
     "suppressImplicitAnyIndexErrors": true,
     "allowSyntheticDefaultImports": false,
-    "noStrictGenericChecks": true
+    "noStrictGenericChecks": true,
+    "types": [
+      "webpack-env",
+      "node",
+      "jest"
+    ]
   },
   "include": ["./app/**/*"],
   "exclude": ["node_modules"],
