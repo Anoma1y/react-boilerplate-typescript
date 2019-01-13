@@ -1,11 +1,11 @@
 import axios, { AxiosInstance } from "axios";
 
 import config, { IStatusCode } from "./config";
-import Modules from './Modules';
+import Modules from "./Modules";
 
 type IModule = {
-  [key: string]: any
-}
+  [key: string]: any;
+};
 
 class Api {
   code: IStatusCode;
@@ -23,13 +23,13 @@ class Api {
       }
     });
 
-    const generatedModules: IModule  = {};
+    const generatedModules: IModule = {};
 
     for (const mod in Modules) {
       if (Modules.hasOwnProperty(mod)) {
-        const moduleKey: string = mod.replace(/([Aa]pi[Mm]odule)/g, '').toLocaleLowerCase();
+        const moduleKey: string = mod.replace(/([Aa]pi[Mm]odule)/g, "").toLocaleLowerCase();
 
-        generatedModules[moduleKey] = new Modules[mod](this.http)
+        generatedModules[moduleKey] = new Modules[mod](this.http);
       }
     }
 

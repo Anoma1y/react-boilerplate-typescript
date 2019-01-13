@@ -8,11 +8,7 @@ interface IProps {
 }
 
 const Image = (props: IProps) => (
-  <img
-    className={props.className}
-    src={props.src}
-    alt={props.alt}
-  />
+  <img className={props.className} src={props.src} alt={props.alt} />
 );
 
 const StyledImage = styled(Image)`

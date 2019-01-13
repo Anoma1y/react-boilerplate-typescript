@@ -1,16 +1,18 @@
 const isValidURL = (str: string): boolean => {
-  const pattern = new RegExp(/^((?:(ht|f)tp(s)?:\/\/)|((\/\/)))?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:\/?#[\]@!\$&'\(\)\*\+,;=.]+$/g);
+  const pattern = new RegExp(
+    /^((?:(ht|f)tp(s)?:\/\/)|((\/\/)))?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:\/?#[\]@!\$&'\(\)\*\+,;=.]+$/g
+  );
   return pattern.test(str);
 };
 
 const parseParams = (str: string): object => {
   const query = {};
-  const pairs = (str[0] === '?' ? str.substr(1) : str).split('&');
+  const pairs = (str[0] === "?" ? str.substr(1) : str).split("&");
 
   if (str.length !== 0) {
     for (let i = 0; i < pairs.length; i++) {
-      const pair = pairs[i].split('=');
-      const [ key, val ] = pair;
+      const pair = pairs[i].split("=");
+      const [key, val] = pair;
 
       if (!key || !val) {
         break;
@@ -37,11 +39,11 @@ const serializeParams = (obj: object): string => {
     }
   }
 
-  return str.join('&');
+  return str.join("&");
 };
 
 export default {
   serializeParams,
   parseParams,
   isValidURL
-}
+};

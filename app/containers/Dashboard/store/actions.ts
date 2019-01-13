@@ -38,7 +38,11 @@ export type IPromiseAuthor = {
   status: string;
 };
 
-export const changePromiseAuthor = (name: string, age: string) => (dispatch: Dispatch): Promise<IPromiseAuthor> => new Promise((resolve, reject): void => {
+export const changePromiseAuthor = (name: string, age: string) => (
+  dispatch: Dispatch
+): Promise<IPromiseAuthor> =>
+  new Promise(
+    (resolve, reject): void => {
       try {
         dispatch(changeName("Test change name"));
         setTimeout(() => {

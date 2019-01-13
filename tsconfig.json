@@ -24,11 +24,7 @@
     "suppressImplicitAnyIndexErrors": true,
     "allowSyntheticDefaultImports": false,
     "noStrictGenericChecks": true,
-    "types": [
-      "webpack-env",
-      "node",
-      "jest"
-    ]
+    "types": ["webpack-env", "node", "jest"]
   },
   "include": ["./app/**/*"],
   "exclude": ["node_modules"],

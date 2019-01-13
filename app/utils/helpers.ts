@@ -1,7 +1,7 @@
 type IObjectToArray = {
-  id: number
-  name: string
-}
+  id: number;
+  name: string;
+};
 
 const objectToArray = (obj: object): IObjectToArray[] => {
   const arr: IObjectToArray[] = [];
@@ -23,7 +23,9 @@ const objectToArray = (obj: object): IObjectToArray[] => {
 const removeEmpty = (obj: object): object => {
   const modObj: object = { ...obj };
 
-  Object.keys(modObj).forEach(key => (modObj[key] === undefined || modObj[key] === null) ? delete modObj[key] : modObj[key]);
+  Object.keys(modObj).forEach((key) =>
+    modObj[key] === undefined || modObj[key] === null ? delete modObj[key] : modObj[key]
+  );
 
   return modObj;
 };
@@ -31,4 +33,4 @@ const removeEmpty = (obj: object): object => {
 export default {
   objectToArray,
   removeEmpty
-}
+};

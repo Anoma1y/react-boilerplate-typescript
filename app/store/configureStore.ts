@@ -24,11 +24,7 @@ if (process.env.NODE_ENV === "development") {
     enchancers.push(devToolsExtension());
   }
 
-  middlewares = [
-    ...middlewares,
-    reduxImmutableStateInvariant,
-    logger
-  ];
+  middlewares = [...middlewares, reduxImmutableStateInvariant, logger];
 }
 
 const reducers = combineReducers({

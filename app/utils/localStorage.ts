@@ -2,20 +2,20 @@ const LocalStorage = window.localStorage;
 
 export default {
   testSupported(): boolean {
-      try {
-        const itemBackup = LocalStorage.getItem('');
-        LocalStorage.removeItem('');
-        LocalStorage.setItem('', String(itemBackup));
+    try {
+      const itemBackup = LocalStorage.getItem("");
+      LocalStorage.removeItem("");
+      LocalStorage.setItem("", String(itemBackup));
 
-        if (itemBackup === null) {
-          LocalStorage.removeItem('');
-        } else {
-          LocalStorage.setItem('', itemBackup);
-        }
-        return true;
-      } catch (e) {
-        return false;
+      if (itemBackup === null) {
+        LocalStorage.removeItem("");
+      } else {
+        LocalStorage.setItem("", itemBackup);
       }
+      return true;
+    } catch (e) {
+      return false;
+    }
   },
   setItem<T>(key: string, value: T) {
     const StringifyValue: string = JSON.stringify(value);
@@ -47,11 +47,11 @@ export default {
     LocalStorage.removeItem(key);
   },
   clearStorage(callback: boolean = false): boolean | void {
-     if (callback) {
-       LocalStorage.clear();
-       return true;
-     }
+    if (callback) {
+      LocalStorage.clear();
+      return true;
+    }
 
-     LocalStorage.clear();
+    LocalStorage.clear();
   }
-}
+};
