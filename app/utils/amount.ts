@@ -1,6 +1,9 @@
-
 const amountInput = (amount: string | number): number => {
   const sum: number = Number(amount) * 100;
+
+  if (sum <= Number.MIN_SAFE_INTEGER || sum >= Number.MAX_SAFE_INTEGER) {
+    return 0;
+  }
 
   return Number(sum.toFixed(0));
 };
@@ -20,7 +23,8 @@ const createSplitter = (partSize: number): Function => {
   return parts;
 };
 
-const amountOutput = (amount) => {
+const amountOutput = (value: string | number): number => {
+  const amount = Number(value);
   const fractionDigits = Math.log(100) * Math.LOG10E;
   const valueAbsStr = (amount / 100).toFixed(fractionDigits);
   const numberParts = valueAbsStr.split('.');
@@ -34,7 +38,7 @@ const amountOutput = (amount) => {
 };
 
 export default {
-  stringReplaceToNumber,
   amountInput,
+  stringReplaceToNumber,
   amountOutput
 }
