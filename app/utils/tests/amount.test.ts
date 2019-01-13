@@ -1,4 +1,4 @@
-import Amount from "../amount";
+import { Amount } from "../index";
 
 describe("Test amount utils", () => {
   describe("amountInput function", () => {

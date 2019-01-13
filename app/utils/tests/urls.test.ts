@@ -1,4 +1,4 @@
-import Urls from "../urls";
+import { Urls } from "../index";
 
 const TruthfulURLSList: string[] = [
   "http://test.example",
@@ -59,7 +59,7 @@ describe("Test URLs utils", () => {
 
   const testParams: string =
     "?fio=Zubenko_Mikhail_Petrovich&profession=vor_v_zakone&birthday=2007&is_mafioznik=1";
-  const testSerialize: { [key: string]: string } = {
+  const testSerialize: { [key: string]: string | number[] } = {
     fio: "Zubenko_Mikhail_Petrovich",
     profession: "vor_v_zakone",
     birthday: "2007",
@@ -94,9 +94,11 @@ describe("Test URLs utils", () => {
     const { serializeParams } = Urls;
 
     test("Should be equal to test object", () => {
+      testSerialize['arr'] = [1, 2, 3];
+
       const query = "?" + serializeParams(testSerialize);
 
-      expect(query).toEqual(testParams);
+      expect(query).toEqual(testParams + '&arr=1,2,3');
     });
   });
 });

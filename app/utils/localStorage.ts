@@ -1,30 +1,22 @@
-const LocalStorage = window.localStorage;
+export interface ILocalStorage {
+  Store: any
+  setItem: <T>(key: string, value: T) => void
+  getItem: (key: string, toParse?: boolean) => string | null
+  hasItem: (key: string) => boolean
+  removeItem: (key: string, callback?: boolean) => boolean | void
+  clearStorage: (callback?: boolean) => boolean | void
+}
 
-export default {
-  testSupported(): boolean {
-    try {
-      const itemBackup = LocalStorage.getItem("");
-      LocalStorage.removeItem("");
-      LocalStorage.setItem("", String(itemBackup));
-
-      if (itemBackup === null) {
-        LocalStorage.removeItem("");
-      } else {
-        LocalStorage.setItem("", itemBackup);
-      }
-      return true;
-    } catch (e) {
-      return false;
-    }
-  },
+export default<ILocalStorage> {
+  Store: window.localStorage,
   setItem<T>(key: string, value: T) {
     const StringifyValue: string = JSON.stringify(value);
 
-    LocalStorage.setItem(key, StringifyValue);
+    this.Store.setItem(key, StringifyValue);
     return true;
   },
   getItem(key: string, toParse: boolean = true): string | null {
-    const data = LocalStorage.getItem(key);
+    const data = this.Store.getItem(key);
 
     if (data === null) {
       return null;
@@ -33,25 +25,25 @@ export default {
     return toParse ? JSON.parse(data) : data;
   },
   hasItem(key: string): boolean {
-    return LocalStorage.getItem(key) !== null;
+    return this.Store.getItem(key) !== null;
   },
   removeItem(key: string, callback: boolean = false): boolean | void {
     if (callback) {
-      if (this.getItem(key) === null) {
+      if (this.Store.getItem(key) === null) {
         return false;
       }
 
-      LocalStorage.removeItem(key);
+      this.Store.removeItem(key);
       return true;
     }
-    LocalStorage.removeItem(key);
+    this.Store.removeItem(key);
   },
   clearStorage(callback: boolean = false): boolean | void {
     if (callback) {
-      LocalStorage.clear();
+      this.Store.clear();
       return true;
     }
 
-    LocalStorage.clear();
-  }
+    this.Store.clear();
+  },
 };

@@ -1,4 +1,4 @@
-import Helpers from "../helpers";
+import { Helpers } from "../index";
 
 type IObj = {
   [key: string]: any;
