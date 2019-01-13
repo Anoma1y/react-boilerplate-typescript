@@ -21,9 +21,11 @@ const objectToArray = (obj: object): IObjectToArray[] => {
 };
 
 const removeEmpty = (obj: object): object => {
-  Object.keys(obj).forEach(key => (obj[key] === undefined || obj[key] === null) ? delete obj[key] : obj[key]);
+  const modObj: object = { ...obj };
 
-  return obj;
+  Object.keys(modObj).forEach(key => (modObj[key] === undefined || modObj[key] === null) ? delete modObj[key] : modObj[key]);
+
+  return modObj;
 };
 
 export default {
