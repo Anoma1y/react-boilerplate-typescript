@@ -15,6 +15,7 @@
     "prettier:js": "yarn prettier:base --write \"**/*.{js,jsx}\"",
     "prettier:json": "yarn prettier:base --write *.json",
     "stylelint:scss": "./node_modules/.bin/stylelint './app/**/*.{scss,sass}'; exit 0",
+    "test": "./node_modules/.bin/jest",
     "tslint": "./node_modules/.bin/tslint --config tslint.json --project tsconfig.json"
   },
   "author": "Anoma1y",
