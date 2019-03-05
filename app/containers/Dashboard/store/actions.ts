@@ -1,12 +1,6 @@
 import { Dispatch } from "redux";
 import { TYPES } from "./reducer";
 
-// todo: убрать куда нибудь
-export interface IAction<TType> {
-  type: TType;
-  payload?: any;
-}
-
 export const reset = (): IAction<TYPES.RESET> => ({
   type: TYPES.RESET
 });

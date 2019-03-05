@@ -11,7 +11,7 @@ const amountInput = (amount: string | number): number => {
 const stringReplaceToNumber = (value: string): number => Number(value.replace(/[^\d]/g, ""));
 
 const createSplitter = (partSize: number): Function => {
-  let parts = (str) => {
+  let parts = (str: string): string[] => {
     const { length } = str;
 
     if (length <= partSize) {

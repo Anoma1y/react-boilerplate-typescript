@@ -1,5 +1,3 @@
-import { IAction } from "./actions";
-
 export const enum TYPES {
   RESET = "Dashboard/RESET",
   CHANGE_NAME = "Dashboard/CHANGE_NAME",
