@@ -1,5 +1,4 @@
 import axios, { AxiosInstance } from "axios";
-
 import config, { IStatusCode } from "./config";
 import Modules from "./Modules";
 

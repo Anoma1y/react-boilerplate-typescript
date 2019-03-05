@@ -4,7 +4,7 @@
     "esModuleInterop": true,
     "target": "es6",
     "jsx": "react",
-    "noImplicitAny": false,
+    "noImplicitAny": true,
     "moduleResolution": "node",
     "sourceMap": true,
     "rootDir": "app",
@@ -15,12 +15,17 @@
     "newLine": "LF",
     "paths": {
       "*": [
+        "node_modules/@types/*",
         "app/*"
       ]
     },
     "lib": ["es5", "es2015", "es6", "es7", "es2017", "dom"]
   },
   "include": ["app/**/*"],
+  "exclude": [
+    "node_modules",
+    "app/utils/tests/*"
+  ],
   "awesomeTypescriptLoaderOptions": {
     "reportFiles": ["./app/**/*"]
   }

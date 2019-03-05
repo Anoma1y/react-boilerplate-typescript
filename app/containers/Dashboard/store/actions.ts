@@ -1,16 +1,16 @@
 import { Dispatch } from "redux";
 import { TYPES } from "./reducer";
 
-export const reset = (): IAction<TYPES.RESET> => ({
+export const reset = (): IAction => ({
   type: TYPES.RESET
 });
 
-export const changeName = (value: string): IAction<TYPES.CHANGE_NAME> => ({
+export const changeName = (value: string): IAction => ({
   type: TYPES.CHANGE_NAME,
   payload: value
 });
 
-interface IChangeAuthorAction extends IAction<TYPES.CHANGE_AUTHOR> {
+interface IChangeAuthorAction extends IAction {
   payload: {
     key: string;
     value: string;

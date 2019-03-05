@@ -20,14 +20,14 @@ const INITIAL_STATE: IDashboardTypes = {
   }
 };
 
-const HANDLERS = {
-  [TYPES.CHANGE_NAME]: (state, payload) => ({ ...state, name: payload }),
-  [TYPES.CHANGE_AUTHOR]: (state, payload) => ({
+const HANDLERS: IReducer<IDashboardTypes> = {
+  [TYPES.CHANGE_NAME]: (state, { payload }) => ({ ...state, name: payload }),
+  [TYPES.CHANGE_AUTHOR]: (state, { payload }) => ({
     ...state,
     author: { ...state.author, [payload.key]: payload.value }
   }),
   [TYPES.RESET]: () => ({ ...INITIAL_STATE })
 };
 
-export default (state: IDashboardTypes = INITIAL_STATE, action: IAction<TYPES>) =>
-  action.type in HANDLERS ? HANDLERS[action.type](state, action.payload) : state;
+export default (state: IDashboardTypes = INITIAL_STATE, action: IAction) =>
+  action.type in HANDLERS ? HANDLERS[action.type](state, action) : state;
