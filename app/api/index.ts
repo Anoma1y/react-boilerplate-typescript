@@ -27,7 +27,7 @@ class Api {
     for (const mod in Modules) {
       if (Modules.hasOwnProperty(mod)) {
         const moduleKey: string = mod.replace(/([Aa]pi[Mm]odule)/g, "").toLocaleLowerCase();
-
+        // @ts-ignore
         generatedModules[moduleKey] = new Modules[mod](this.http);
       }
     }

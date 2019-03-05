@@ -14,3 +14,11 @@ interface Dispatch<D = IAction> {
   <A extends D>(action: A): A;
 }
 
+interface IStateProps {
+  propFromReduxStore: string
+}
+
+interface IGlobalState {
+  router: any;
+  Dashboard: any;
+}
