@@ -7,6 +7,7 @@
     "build": "cross-env NODE_ENV=production webpack --env=production --config=internals/webpack/webpack.prod.config.js --mode=production --color -p --progress --hide-modules --display-optimization-bailout",
     "dev": "cross-env NODE_ENV=development webpack-dev-server --env=development --config=internals/webpack/webpack.dev.config.js --mode=development --port 8080",
     "generate": "plop --plopfile internals/generators/index.js",
+    "generate:all": "node ./internals/helpers/ApiGenerator.js && node ./internals/helpers/ReducersGenerator.js",
     "generate:reducers": "node ./internals/helpers/ReducersGenerator.js",
     "generate:api": "node ./internals/helpers/ApiGenerator.js",
     "prettier:base": "./node_modules/.bin/prettier --config .prettierrc",
