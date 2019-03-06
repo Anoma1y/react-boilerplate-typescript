@@ -10,14 +10,7 @@ export const changeName = (value: string): IAction => ({
   payload: value
 });
 
-interface IChangeAuthorAction extends IAction {
-  payload: {
-    key: string;
-    value: string;
-  };
-}
-
-export const changeAuthor = (key: string, value: string): IChangeAuthorAction => ({
+export const changeAuthor = (key: string, value: string): IAction => ({
   type: TYPES.CHANGE_AUTHOR,
   payload: { key, value }
 });
@@ -32,26 +25,21 @@ export type IPromiseAuthor = {
   status: string;
 };
 
-export const changePromiseAuthor = (name: string, age: string) => (
-  dispatch: Dispatch
-): Promise<IPromiseAuthor> =>
-  new Promise(
-    (resolve, reject): void => {
-      try {
-        dispatch(changeName("Test change name"));
-        setTimeout(() => {
-          dispatch(changeAuthor("name", name));
-          dispatch(changeAuthor("age", age));
-          resolve({
-            code: 200,
-            status: "OK"
-          });
-        }, 2000);
-      } catch (e) {
-        reject(e);
-      }
-    }
-  );
+export const changePromiseAuthor = (name: string, age: string) => (dispatch: Dispatch): Promise<IPromiseAuthor> => new Promise((resolve, reject): void => {
+  try {
+    dispatch(changeName("Test change name"));
+    setTimeout(() => {
+      dispatch(changeAuthor("name", name));
+      dispatch(changeAuthor("age", age));
+      resolve({
+        code: 200,
+        status: "OK"
+      });
+    }, 2000);
+  } catch (e) {
+    reject(e);
+  }
+});
 
 // export interface IAction<TType, TPayload> {
 //   type: TType;
