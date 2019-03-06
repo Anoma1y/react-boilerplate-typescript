@@ -18,7 +18,4 @@ interface IStateProps {
   propFromReduxStore: string
 }
 
-interface IGlobalState {
-  router: any;
-  Dashboard: any;
-}
+type IMapStateToProps = (state: any) => void

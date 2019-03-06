@@ -4,7 +4,7 @@
     "esModuleInterop": true,
     "target": "es6",
     "jsx": "react",
-    "noImplicitAny": false,
+    "noImplicitAny": true,
     "moduleResolution": "node",
     "sourceMap": true,
     "rootDir": "app",
@@ -25,7 +25,7 @@
   "include": ["app/**/*"],
   "exclude": [
     "node_modules",
-    "app/utils/tests/*"
+    "app/**/*.test.ts"
   ],
   "awesomeTypescriptLoaderOptions": {
     "reportFiles": ["./app/**/*"]

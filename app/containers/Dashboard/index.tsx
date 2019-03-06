@@ -21,7 +21,7 @@ interface IState {
   ready: boolean;
 }
 
-const mapStateToProps = ({ Dashboard }) => ({ Dashboard });
+const mapStateToProps: IMapStateToProps = ({ Dashboard }) => ({ Dashboard });
 
 const mapDispatchToProps = {
   changeName,

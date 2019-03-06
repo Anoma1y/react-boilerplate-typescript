@@ -69,8 +69,15 @@ describe("Test URLs utils", () => {
   describe("parseParams function", () => {
     const { parseParams } = Urls;
 
+    type TZubenko = any | {
+      fio: string
+      profession: string
+      birthday: string
+      is_mafioznik: string
+    }
+
     test("Should return all keys in query string", () => {
-      const obj = parseParams(testParams);
+      const obj: TZubenko = parseParams(testParams);
 
       expect(obj).toEqual(testSerialize);
       expect(obj["fio"]).toEqual("Zubenko_Mikhail_Petrovich");

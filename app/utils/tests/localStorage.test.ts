@@ -19,14 +19,17 @@ class LocalStorageMock {
   }
 
   getItem(key: string): string | null {
+    // @ts-ignore
     return this.store[key] || null;
   }
 
   setItem(key: string, value: string) {
+    // @ts-ignore
     this.store[key] = value.toString();
   }
 
   removeItem(key: string) {
+    // @ts-ignore
     delete this.store[key];
   }
 }

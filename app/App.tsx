@@ -4,9 +4,7 @@ import { connect } from "react-redux";
 import Image from "./components/Image";
 import Dashboard from "./containers/Dashboard";
 
-const mapStateToProps = (state: IGlobalState) => ({
-  router: state.router
-});
+const mapStateToProps: IMapStateToProps = ({ router }) => ({ router });
 
 class App extends React.Component {
   render() {
