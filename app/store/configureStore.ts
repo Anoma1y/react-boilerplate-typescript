@@ -17,11 +17,10 @@ if (process.env.NODE_ENV === "development") {
   const logger = createLogger({
     collapsed: true
   });
-  const { devToolsExtension } = window;
 
-  if (typeof devToolsExtension === "function") {
-    enchancers.push(devToolsExtension());
-  }
+  enchancers.push(
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  );
 
   middlewares = [...middlewares, reduxImmutableStateInvariant, logger];
 }
