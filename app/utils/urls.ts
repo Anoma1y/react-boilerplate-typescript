@@ -6,7 +6,7 @@ const isValidURL = (str: string): boolean => {
 };
 
 const parseParams = (str: string): object => {
-  const query = {};
+  const query: any = {};
   const pairs = (str[0] === "?" ? str.substr(1) : str).split("&");
 
   if (str.length !== 0) {
@@ -25,7 +25,7 @@ const parseParams = (str: string): object => {
   return query;
 };
 
-const serializeParams = (obj: object): string => {
+const serializeParams = (obj: any): string => {
   const str: string[] = [];
 
   for (const p in obj) {

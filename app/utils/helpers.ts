@@ -3,7 +3,7 @@ type IObjectToArray = {
   name: string;
 };
 
-const objectToArray = (obj: object): IObjectToArray[] => {
+const objectToArray = (obj: any): IObjectToArray[] => {
   const arr: IObjectToArray[] = [];
 
   for (let i in obj) {
@@ -21,7 +21,7 @@ const objectToArray = (obj: object): IObjectToArray[] => {
 };
 
 const removeEmpty = (obj: object): object => {
-  const modObj: object = { ...obj };
+  const modObj: any = { ...obj };
 
   Object.keys(modObj).forEach((key) =>
     modObj[key] === undefined || modObj[key] === null ? delete modObj[key] : modObj[key]

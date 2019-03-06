@@ -1,33 +1,32 @@
 {
   "compilerOptions": {
-    "rootDir": "app",
-    "baseUrl": "app",
-    "outDir": "./build/",
     "module": "esnext",
-    "target": "es5",
+    "esModuleInterop": true,
+    "target": "es6",
     "jsx": "react",
-    "lib": ["es5", "es2015", "es6", "es7", "es2017", "dom"],
+    "noImplicitAny": false,
     "moduleResolution": "node",
-    "newLine": "LF",
     "sourceMap": true,
-    "allowJs": true,
-    "forceConsistentCasingInFileNames": true,
-    "noUnusedParameters": true,
-    "pretty": true,
-    "strictPropertyInitialization": true,
-    "strict": true,
-    "experimentalDecorators": true,
-    "noImplicitReturns": true,
-    "noImplicitAny": false, // test
-    "noImplicitThis": true,
-    "strictNullChecks": true,
-    "suppressImplicitAnyIndexErrors": true,
-    "allowSyntheticDefaultImports": false,
-    "noStrictGenericChecks": true,
-    "types": ["webpack-env", "node", "jest"]
+    "rootDir": "app",
+    "baseUrl": ".",
+    "outDir": "./build/",
+    "allowJs": false,
+    "resolveJsonModule": true,
+    "newLine": "LF",
+    "paths": {
+      "*": [
+        "node_modules/@types/*",
+        "app/*"
+      ]
+    },
+    "lib": ["es5", "es2015", "es6", "es7", "es2017", "dom"],
+    "types": ["webpack-env", "node"]
   },
-  "include": ["./app/**/*"],
-  "exclude": ["node_modules"],
+  "include": ["app/**/*"],
+  "exclude": [
+    "node_modules",
+    "app/utils/tests/*"
+  ],
   "awesomeTypescriptLoaderOptions": {
     "reportFiles": ["./app/**/*"]
   }

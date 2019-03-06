@@ -5,7 +5,6 @@ import thunkMiddleware from "redux-thunk";
 import { createBrowserHistory } from "history";
 
 import rootReducer from "./reducers";
-
 const initialState: {} = {};
 
 const history = createBrowserHistory();
