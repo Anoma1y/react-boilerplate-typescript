@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "cross-env NODE_ENV=production webpack --env=production --config=internals/webpack/webpack.prod.config.js --mode=production --color -p --progress --hide-modules --display-optimization-bailout",
+    "build": "yarn generate:all && yarn test:all && cross-env NODE_ENV=production webpack --env=production --config=internals/webpack/webpack.prod.config.js --mode=production --color -p --progress --hide-modules --display-optimization-bailout",
+    "build:force": "cross-env NODE_ENV=production webpack --env=production --config=internals/webpack/webpack.prod.config.js --mode=production --color -p --progress --hide-modules --display-optimization-bailout",
     "dev": "cross-env NODE_ENV=development webpack-dev-server --env=development --config=internals/webpack/webpack.dev.config.js --mode=development --port 8080",
     "generate": "plop --plopfile internals/generators/index.js",
     "generate:all": "node ./internals/helpers/ApiGenerator.js && node ./internals/helpers/ReducersGenerator.js",
@@ -16,6 +17,7 @@
     "prettier:js": "yarn prettier:base --write \"**/*.{js,jsx}\"",
     "prettier:json": "yarn prettier:base --write *.json",
     "stylelint:scss": "./node_modules/.bin/stylelint './app/**/*.{scss,sass}'; exit 0",
+    "test:all": "yarn test:utils",
     "test:utils": "./node_modules/.bin/jest './app/utils/tests'",
     "tslint": "./node_modules/.bin/tslint --config tslint.json --project tsconfig.json"
   },
