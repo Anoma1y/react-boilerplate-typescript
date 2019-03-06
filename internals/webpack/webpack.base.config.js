@@ -1,6 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const { CheckerPlugin } = require('awesome-typescript-loader');
+const Dotenv = require('dotenv-webpack');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 
@@ -96,6 +97,7 @@ module.exports = (options) => ({
   plugins: options.plugins.concat([
     new ProgressBarPlugin(),
     new CheckerPlugin(),
+    new Dotenv(),
     new webpack.ProvidePlugin({
       fetch: 'exports-loader?self.fetch!whatwg-fetch'
     }),

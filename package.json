@@ -6,7 +6,7 @@
   "scripts": {
     "build": "yarn generate:all && yarn test:all && cross-env NODE_ENV=production webpack --env=production --config=internals/webpack/webpack.prod.config.js --mode=production --color -p --progress --hide-modules --display-optimization-bailout",
     "build:force": "cross-env NODE_ENV=production webpack --env=production --config=internals/webpack/webpack.prod.config.js --mode=production --color -p --progress --hide-modules --display-optimization-bailout",
-    "dev": "cross-env NODE_ENV=development webpack-dev-server --env=development --config=internals/webpack/webpack.dev.config.js --mode=development --port 8080",
+    "dev": "yarn generate:all && cross-env NODE_ENV=development webpack-dev-server --env=development --config=internals/webpack/webpack.dev.config.js --mode=development --port 8080",
     "generate": "plop --plopfile internals/generators/index.js",
     "generate:all": "node ./internals/helpers/ApiGenerator.js && node ./internals/helpers/ReducersGenerator.js",
     "generate:reducers": "node ./internals/helpers/ReducersGenerator.js",
@@ -60,6 +60,7 @@
     "copy-webpack-plugin": "^5.0.0",
     "cross-env": "^5.2.0",
     "css-loader": "^2.1.0",
+    "dotenv-webpack": "^1.7.0",
     "empty": "^0.10.1",
     "eventsource-polyfill": "^0.9.6",
     "exports-loader": "^0.7.0",
