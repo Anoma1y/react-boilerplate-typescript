@@ -66,11 +66,11 @@ module.exports = require("./webpack.base.config")({
       },
       inject: true
     }),
-    new webpack.HashedModuleIdsPlugin({
-      hashFunction: 'sha256',
-      hashDigest: 'hex',
-      hashDigestLength: 20,
-    }),
+    // new webpack.HashedModuleIdsPlugin({
+    //   hashFunction: 'sha256',
+    //   hashDigest: 'hex',
+    //   hashDigestLength: 20,
+    // }),
     new CopyWebpackPlugin([
       {
         from: "public/static",

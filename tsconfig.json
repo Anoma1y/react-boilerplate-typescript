@@ -4,7 +4,7 @@
     "esModuleInterop": true,
     "target": "es6",
     "jsx": "react",
-    "noImplicitAny": true,
+    "noImplicitAny": false,
     "moduleResolution": "node",
     "sourceMap": true,
     "rootDir": "app",
@@ -19,7 +19,8 @@
         "app/*"
       ]
     },
-    "lib": ["es5", "es2015", "es6", "es7", "es2017", "dom"]
+    "lib": ["es5", "es2015", "es6", "es7", "es2017", "dom"],
+    "types": ["webpack-env", "node"]
   },
   "include": ["app/**/*"],
   "exclude": [
