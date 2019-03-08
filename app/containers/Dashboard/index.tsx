@@ -30,8 +30,7 @@ const mapDispatchToProps = {
   changePromiseAuthor
 };
 
-@(connect(mapStateToProps, mapDispatchToProps) as any)
-export default class Dashboard extends React.Component<IProps, IState> {
+class Dashboard extends React.Component<IProps, IState> {
   state = {
     ready: false
   };
@@ -69,7 +68,7 @@ export default class Dashboard extends React.Component<IProps, IState> {
   }
 }
 
-// export default (connect(
-//   mapStateToProps,
-//   mapDispatchToProps
-// ) as any)(Dashboard);
+export default (connect(
+  mapStateToProps,
+  mapDispatchToProps
+) as any)(Dashboard);
