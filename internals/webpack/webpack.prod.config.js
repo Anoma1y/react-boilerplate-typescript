@@ -43,9 +43,7 @@ module.exports = require("./webpack.base.config")({
     runtimeChunk: false,
   },
   plugins: [
-    new CleanWebpackPlugin(path.resolve(process.cwd(), "build"), {
-      root: process.cwd()
-    }),
+    new CleanWebpackPlugin(),
     new webpack.optimize.ModuleConcatenationPlugin(),
     new MiniCssExtractPlugin({
       filename: "style.[contenthash].css"

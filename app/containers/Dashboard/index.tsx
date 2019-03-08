@@ -10,7 +10,7 @@ import {
 } from "./store/actions";
 
 interface IProps {
-  Dashboard: IDashboardTypes;
+  Dashboard?: IDashboardTypes;
   changeName?: (value: string) => void;
   changeAuthor?: (key: string, value: string) => void;
   changeThunkAuthor?: () => void;
@@ -30,7 +30,8 @@ const mapDispatchToProps = {
   changePromiseAuthor
 };
 
-class Dashboard extends React.Component<IProps, IState> {
+@(connect(mapStateToProps, mapDispatchToProps) as any)
+export default class Dashboard extends React.Component<IProps, IState> {
   state = {
     ready: false
   };
@@ -68,7 +69,7 @@ class Dashboard extends React.Component<IProps, IState> {
   }
 }
 
-export default (connect(
-  mapStateToProps,
-  mapDispatchToProps
-) as any)(Dashboard);
+// export default (connect(
+//   mapStateToProps,
+//   mapDispatchToProps
+// ) as any)(Dashboard);

@@ -6,7 +6,8 @@ import Dashboard from "./containers/Dashboard";
 
 const mapStateToProps: IMapStateToProps = ({ router }) => ({ router });
 
-class App extends React.Component {
+@(connect(mapStateToProps) as any)
+export default class App extends React.Component {
   render() {
     return (
       <div className={"page"}>
@@ -18,4 +19,4 @@ class App extends React.Component {
   }
 }
 
-export default (connect(mapStateToProps) as any)(App);
+// export default ()(App);

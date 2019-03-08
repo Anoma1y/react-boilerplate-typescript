@@ -16,6 +16,7 @@
     "removeComments": true,
     "newLine": "LF",
     "typeRoots": ["node_modules/@types"],
+    "experimentalDecorators": true,
     "paths": {
       "*": [
         "app/*"
